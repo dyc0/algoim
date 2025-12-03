@@ -22,7 +22,7 @@
 #elif __has_include(<mkl_lapacke.h>)
 #include <mkl_lapacke.h>
 #else
-#error "WITH_LAPACK directive is active, then Algoim requires a LAPACKE implementation to compute eigenvalues and SVD factorisations, but a suitable lapacke.h include file was not found; did you forget to specify its include path?"
+#include "lapacke/lapacke.h"
 #endif
 
 #endif // WITH_LAPACK
