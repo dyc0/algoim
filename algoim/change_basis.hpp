@@ -111,7 +111,7 @@ namespace detail
      * @param _rhs Right-hand-side square matrix of the product.
      * @param _res Result of the product.
      */
-    void kronProd(const std::vector<real> &_lhs, const std::vector<real> &_rhs,
+    inline void kronProd(const std::vector<real> &_lhs, const std::vector<real> &_rhs,
                   std::vector<real> &_res)
     {
         const int nl = std::sqrt(static_cast<int>(_lhs.size()));
