@@ -314,7 +314,7 @@ namespace detail
     }
 
     // Transforms Bernstein coefficients into monomial coefficients.
-    void monomialCoefficients(const real *bernstein, int P, real *monomial)
+    inline void monomialCoefficients(const real *bernstein, int P, real *monomial)
     {
         for (int i = 0; i < P; ++i)
             monomial[i] = 0.0;
@@ -327,7 +327,7 @@ namespace detail
     }
 
     // Transforms monomial coefficients into Bernstein coefficients.
-    void bernsteinCoefficients(const real *monomial, int P, real *bernstein)
+    inline void bernsteinCoefficients(const real *monomial, int P, real *bernstein)
     {
         for (int i = 0; i < P; ++i)
             bernstein[i] = 0.0;
@@ -594,7 +594,7 @@ namespace detail
      * @param out Complex eigenvalues to be computed.
      * @return True is succeed, false otherwise.
      */
-    bool generalisedEigenvaluesLAPACK(xarray<real,2>& A, xarray<real,2>& B, xarray<real,2>& out)
+    inline bool generalisedEigenvaluesLAPACK(xarray<real,2>& A, xarray<real,2>& B, xarray<real,2>& out)
     {
         int N = A.ext(0);
         assert(all(A.ext() == N) && all(B.ext() == N) && out.ext(0) == N && out.ext(1) == 2);
