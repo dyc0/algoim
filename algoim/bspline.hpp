@@ -425,7 +425,7 @@ public:
      * 
      * @return Number of non-empty knot spans.
      */
-    int getNumEelements() const
+    int getNumElements() const
     {
         return static_cast<int>(unique_data.size()) - 1;
     }
@@ -520,6 +520,19 @@ public:
     int getLastKnotSmallerOrEqual(const T _t) const
     {
         return getLastKnotSmallerOrEqual(this->data.data(), this->size(), _t);
+    }
+
+    /**
+     * @brief Gets the index of the unique knot that is smaller than or equal to @p _t
+     * 
+     * @tparam T Type of the coordinate.
+     * @param _t Coordinate to be tested.
+     * @return Index of the found unique knot value.
+     */
+    template<typename T>
+    int getLastUniqueKnotSmallerOrEqual(const T _t) const
+    {
+        return getLastKnotSmallerOrEqual(this->unique_data.data(), static_cast<int>(this->unique_data.size()), _t);
     }
 
     /**
@@ -1004,7 +1017,7 @@ inline BSplineEvaluation::BSplineEvaluation(const BSpline &_spline, const int _n
 :
 order(_spline.order),
 n_pts_per_elem(_n_pts_per_elem),
-n_elems(_spline.knots.getNumEelements()),
+n_elems(_spline.knots.getNumElements()),
 first_func_per_elem(),
 basis_values(),
 basis_values_w(),
@@ -1326,7 +1339,7 @@ struct BSplineTP
     {
         uvector<int, N> n;
         for(int dir = 0; dir < N; ++dir)
-            n(dir) = this->getKnots(dir).getNumEelements();
+            n(dir) = this->getKnots(dir).getNumElements();
         return n;
     }
 
