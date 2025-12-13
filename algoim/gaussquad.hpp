@@ -4,6 +4,7 @@
 // Gaussian quadrature schemes for the interval [0,1] of node count p, 1 <= p <= 100.
 
 #include <cassert>
+#include <type_traits>
 #include "real.hpp"
 
 namespace algoim

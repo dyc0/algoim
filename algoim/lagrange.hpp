@@ -10,6 +10,7 @@
 #include "multiloop.hpp"
 #include "polynomial_tp.hpp"
 
+#include <memory>
 #include <vector>
 #include <cassert>
 
